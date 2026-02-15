@@ -1,100 +1,69 @@
-# ⚡ Creators Hub Foundry
+# CreatorsHub Frontend
 
-**Creators Hub Foundry** is a premium, ultra-modern e-commerce platform engineered specifically for the visionaries of tomorrow. It provides a bridge between imagination and the screen by offering professional-grade equipment curated for specific creative journeys.
-
-### 🌐 Live Demo: [creatorshub-3lyb.onrender.com](https://creatorshub-3lyb.onrender.com)
-
-## 🖼️ Visual Preview
-
-### 🖥️ Desktop Experience
-
-![Hero Desktop](/public/previews/hero-desktop.png)
-_Ultra-Premium Landing Page with dynamic gradients and polished navigation._
-
-![Catalog Desktop](/public/previews/catalog-desktop.png)
-_Professional Product Catalog featuring a searchable and filterable gear archive._
-
-### 📱 Mobile Excellence
-
-<div align="center">
-  <table border="0">
-    <tr>
-      <td><img src="/public/previews/hero-mobile.png" width="250" alt="Mobile Hero" /></td>
-      <td><img src="/public/previews/catalog-mobile.png" width="250" alt="Mobile Catalog" /></td>
-      <td><img src="/public/previews/niches-mobile.png" width="250" alt="Mobile Niches" /></td>
-    </tr>
-  </table>
-</div>
-*Fully optimized mobile experience with 2-column grids, scaled typography, and responsive drawer navigation.*
-
-## 🚀 Features
-
-- **🎯 Niche-Specific Curations**: Filters equipment by passion—Streaming, Gaming, Dancing, or Content Creation.
-- **🛡️ Secure User Deletion**: Advanced admin security requiring password verification and double confirmation for user removal.
-- **💎 Creator Mode**: Professional logic applying a 10% discount across the store for verified creators.
-- **🎞️ Cinematic Visuals**: Immersive video modals, high-performance marquees, and a refined dark-mode design system.
-- **📦 Smart Order Management**: Integrated tracking with the ability for admins to mark orders as "Delivered" with a single click.
-- **🎨 Premium UI/UX**: Glassmorphism, smooth micro-animations, and custom gradients using HSL color tokens.
-- **📊 Analytics Dashboard**: Visual data visualization for sales trends, revenue, and product performance monitoring.
-- **🧾 Smart Order Receipts**: Detailed, printable order success views with "Admin Mode" for order management.
-- **📱 Ultra-Responsive Overhaul**: Optimized 2-column mobile grids, scaled typography, and a powerful mobile drawer with search integration.
-- **🖼️ Cloudinary Integration**: High-performance, cloud-based image hosting and management for product media.
-- **🔍 Professional SEO Suite**: Dynamic metadata for products, integrated `sitemap.ts`, and `robots.ts` for maximum search visibility.
-- **🚀 One-Click Deployment**: Standardized configuration for seamless hosting on platforms like Render.
+The React/Next.js frontend for the CreatorsHub platform. It features a modern, responsive UI built with Tailwind CSS, Framer Motion for animations, and Lucide for icons.
 
 ## 🛠️ Tech Stack
 
-- **Core**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Backend API**: Node.js & Express (MongoDB)
-- **Notifications**: React Hot Toast
-- **State**: React Context API (Cart, Auth, Settings)
+- **Framework**: Next.js 16 (App Router)
+- **Library**: React 19
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Validation**: Zod & React Hook Form
+- **Charts**: Recharts
+- **Utilities**: date-fns, html2canvas, jspdf
 
-## 🏁 Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18.x or later
-- npm, yarn, pnpm, or bun
+- Node.js (v18+)
+- Backend server running (for API calls)
 
 ### Installation
 
-1. **Clone the repository:**
+1.  Navigate to the frontend directory:
 
-   ```bash
-   git clone https://github.com/AliameenXBT/creatorshub-ecommerce.git
-   cd creatorshub-ecommerce
-   ```
+    ```bash
+    cd frontend
+    ```
 
-2. **Install dependencies:**
+2.  Install dependencies:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-3. **Run the development server:**
+3.  Set up environment variables:
+    Create a `.env.local` file in the `frontend` directory:
 
-   ```bash
-   npm run dev
-   ```
+    ```env
+    NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    ```
 
-4. **Open the app:**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
+4.  Start the development server:
 
-## 📘 Usage Instructions
+    ```bash
+    npm run dev
+    ```
 
-- **Exploration**: Use the **Niche Selector** on the homepage to find gear specific to your craft.
-- **Shopping**: Add items to your cart from the product cards. The cart is always accessible via the navigation bar.
-- **Creator Mode**: Access the login/register sections to explore user-specific pricing and "Creator Mode" features.
-- **Admin**: Visit `/admin` for the administrative management interface (requires admin credentials).
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📄 License
+## 📂 Project Structure
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+- `src/app`: App Router pages and layouts.
+- `src/components`: Reusable UI components.
+- `src/context`: React Context providers (Auth, Theme, etc.).
+- `src/lib`: Utility functions and library wrappers.
+- `src/types`: TypeScript interfaces and types.
+- `public`: Static assets (images, fonts).
 
----
+## ✨ Key Features
 
-Built with 🖤 for the Creator Community.
+- **Dashboard**: Interactive analytics and overview.
+- **Product Management**: Create, edit, and list products.
+- **Order Tracking**: View and manage customer orders.
+- **Settings**: Configure application preferences.
+- **Reporting**: Export data (PDF/Canvas) via `html2canvas`/`jspdf`.

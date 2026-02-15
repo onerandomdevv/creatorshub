@@ -1,114 +1,93 @@
-# ⚡ Creators Hub Foundry - Backend
+# CreatorsHub Backend API
 
-**Creators Hub Foundry API** is the powerhouse behind the premium e-commerce experience. Built with Node.js, Express, and MongoDB, it handles secure authentication, product management, orders, analytics, and real-time store settings.
-
-## 🚀 Features
-
-- **🛡️ Secure Authentication**:
-  - JWT-based auth with encrypted passwords (`bcryptjs`).
-  - **Email Verification**: 6-digit OTP verification flow.
-  - **Password Reset**: Secure token-based password recovery via email.
-- **📊 Analytics Engine**: Real-time sales tracking, revenue visualization, and product performance metrics.
-- **📦 Unified Product Engine**: Advanced filtering, niche categorization, and image metadata management.
-- **🛒 Order Orchestration**: Complete checkout lifecycle management with email notifications.
-- **⚙️ Dynamic Store Settings**: Singleton configuration system for global currency, address, and social media links.
-- **🖼️ Cloudinary Storage Integration**: Scalable cloud-based media management for product images (production ready).
-- **🔒 Robust Middleware**: Custom protection and admin-only authorization layers.
-- **🧹 Database Maintenance**: Dedicated scripts for safe data cleanup and environment resets.
+The backend API for the CreatorsHub platform, built with Node.js, Express, and MongoDB. It provides authentication, product management, order processing, and analytics features.
 
 ## 🛠️ Tech Stack
 
-- **Platform**: [Node.js](https://nodejs.org/)
-- **Framework**: [Express.js](https://expressjs.com/)
-- **Database**: [MongoDB](https://www.mongodb.com/) (via Mongoose)
-- **Security**: [JSON Web Token (JWT)](https://jwt.io/), [Bcryptjs](https://github.com/dcodeIO/bcrypt.js)
-- **Email**: [Nodemailer](https://nodemailer.com/)
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB (Mongoose)
+- **Authentication**: JWT & bcryptjs
+- **File Storage**: Cloudinary (via Multer)
+- **Email**: Nodemailer
 
-## 🏁 Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18.x or later
-- MongoDB (Local instance or Atlas URI)
-- npm, yarn, pnpm, or bun
-
-### Environment Setup
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-PORT=5000
-NODE_ENV=development
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-
-# Frontend Configuration
-FRONTEND_URL=https://your-frontend.onrender.com
-
-# Cloudinary Credentials
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
-# Email Configuration (Gmail App Password recommended)
-EMAIL_SERVICE=gmail
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password
-EMAIL_FROM=noreply@creatorshub.com
-
-```
+- Node.js (v18+)
+- MongoDB (Local or Atlas URI)
+- Cloudinary Account (for image uploads)
 
 ### Installation
 
-1. **Clone the repository:**
+1.  Navigate to the backend directory:
 
-   ```bash
-   git clone https://github.com/AliameenXBT/creatorshub-ecommerce-bd.git
-   cd creatorshub-ecommerce-bd
-   ```
+    ```bash
+    cd backend
+    ```
 
-2. **Install dependencies:**
+2.  Install dependencies:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-3. **Seed Database (Optional):**
+3.  Set up environment variables:
+    Create a `.env` file in the `backend` directory with the following:
 
-   ```bash
-   node seeder.js
-   ```
+    ```env
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_jwt_secret
+    NODE_ENV=development
 
-4. **Maintenance Scripts:**
+    # Cloudinary Config
+    CLOUDINARY_CLOUD_NAME=your_cloud_name
+    CLOUDINARY_API_KEY=your_api_key
+    CLOUDINARY_API_SECRET=your_api_secret
 
-   ```bash
-   # Reset Database (Clear products and orders)
-   npm run reset-db
-   ```
+    # Email Config (if applicable)
+    EMAIL_SERVICE=gmail
+    EMAIL_USER=your_email@gmail.com
+    EMAIL_PASS=your_email_app_password
+    ```
 
-5. **Run the server:**
+4.  Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-   ```bash
-   # Development mode
-   npm run dev
+## 📜 Scripts
 
-   # Production mode
-   npm start
-   ```
+- `npm run start`: Starts the server in production mode.
+- `npm run dev`: Starts the server with Nodemon for development.
+- `npm run reset-db`: Resets the database (use with caution).
+- `npm run data:import`: Import sample data (if configured).
 
-## 🏗️ API Structure
+## 🔌 API Endpoints
 
-- `/api/auth`: Login, Register, Verify Email, Password Reset.
-- `/api/products`: Catalog management and filtering.
-- `/api/orders`: Order processing and history.
-- `/api/analytics`: Admin dashboard data (Protected).
-- `/api/settings`: Global store configuration.
-- `/api/upload`: Image hosting and management.
+### Auth
 
-## 📄 License
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login user & get token
 
-This project is licensed under the **MIT License**.
+### Products
 
----
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create a product
+- `GET /api/products/:id` - Get single product
 
-Engineered for the visionaries of tomorrow. ⚡
+### Orders
+
+- `GET /api/orders` - Get all orders
+- `POST /api/orders` - Create new order
+
+### Analytics
+
+- `GET /api/analytics` - Get dashboard analytics data
+
+### Settings
+
+- `GET /api/settings` - Get application settings
+- `PUT /api/settings` - Update settings
